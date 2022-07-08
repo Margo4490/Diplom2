@@ -13,7 +13,7 @@ public class DataGenerator {
 
     static Faker faker = new Faker(new Locale("en"));
 
-    public static String getFirsNumberCard() {
+    public static String getFirstNumberCard() {
         return ("4444 4444 4444 4441");
     }
 
@@ -26,7 +26,7 @@ public class DataGenerator {
         return faker.finance().creditCard();
     }
 
-    public static String getShortNumberCard() {
+    public static String getInvalidShortNumberCard() {
         return faker.numerify("#### #### ####");
     }
 
@@ -45,6 +45,10 @@ public class DataGenerator {
 
     }
 
+    public static String getInvalidMonthCard() {
+        return "00";
+    }
+
     public static String getYearCard(int plusYears) {
         return LocalDate.now().plusYears(plusYears).format(DateTimeFormatter.ofPattern("YY"));
 
@@ -54,25 +58,25 @@ public class DataGenerator {
         return faker.numerify("#");
     }
 
-    public static String getCardHolder() {
+    public static String getOwnerCard() {
         return faker.name().name();
     }
 
-    public static String getInvalidCardHolder() {
+    public static String getInvalidOwnerCard() {
         return faker.name().firstName();
 
     }
 
-    public static String getInvalidCardHolderCyrillic() {
+    public static String getInvalidOwnerCardCyrillic() {
         Faker faker = new Faker(new Locale("ru"));
         return faker.name().name();
     }
 
-    public static String getInvalidCardHolderWithDigit() {
+    public static String getInvalidOwnerCardWithDigit() {
         return faker.name().firstName() + faker.numerify("#");
     }
 
-    public static String getInvalidCardHolderWithOneLetter() {
+    public static String getInvalidOwnerCardWithOneLetter() {
         return "I";
     }
 
